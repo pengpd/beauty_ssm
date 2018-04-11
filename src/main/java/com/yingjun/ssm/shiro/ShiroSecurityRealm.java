@@ -15,6 +15,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.stereotype.Component;
 
 import com.yingjun.ssm.dao.UserDao;
+import com.yingjun.ssm.entity.SysUser;
 import com.yingjun.ssm.entity.User;
 import com.yingjun.ssm.service.UserService;  
   
