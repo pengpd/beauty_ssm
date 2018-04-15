@@ -2,6 +2,7 @@ package com.yingjun.ssm.service.impl;
 
 import com.yingjun.ssm.cache.RedisCache;
 import com.yingjun.ssm.dao.UserDao;
+import com.yingjun.ssm.entity.SysUser;
 import com.yingjun.ssm.entity.User;
 import com.yingjun.ssm.service.UserService;
 import org.slf4j.Logger;
@@ -35,6 +36,20 @@ public class UserServiceImpl implements UserService {
 			LOG.info("get cache with key:"+cache_key);
 		}
 		return result_cache;
+	}
+
+
+	@Override
+	public SysUser getUser(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public User getUserById(Long userId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

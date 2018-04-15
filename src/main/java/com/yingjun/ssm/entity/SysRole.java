@@ -1,6 +1,7 @@
 package com.yingjun.ssm.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 /**
  * sys_role
@@ -133,4 +134,9 @@ public class SysRole implements Serializable {
         sb.append("]");
         return sb.toString();
     }
+
+	public Collection<String> getPermissions() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
