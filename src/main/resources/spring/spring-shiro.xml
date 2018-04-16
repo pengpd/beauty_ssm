@@ -14,6 +14,11 @@
 		<property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml" />
 	</bean>
 	
+	<bean id="shiroSecurityRealm" class="com.yingjun.ssm.shiro.shiroSecurityRealm">
+		<property name="credentialsMatcher" ref="credentialsMatcher" />
+		<property name="authenticationTokenClass" value="com.boyaa.mf.support.shiro.SSOAuthenticationToken"/>
+	</bean>
+	
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<!--认证管理器-->
 		<property name="realm" ref="shiroSecurityRealm" />
@@ -71,7 +76,7 @@
 	</bean>
 	
 	
-    <bean id="sysUserFilter" class="yfkj.gz.task.security.SysUserFilter"/>
+    <bean id="sysUserFilter" class="com.yingjun.ssm.filter.SysUserFilter"/>
     
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
