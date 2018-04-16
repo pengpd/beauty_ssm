@@ -16,7 +16,7 @@
 	
 	<bean id="shiroSecurityRealm" class="com.yingjun.ssm.shiro.shiroSecurityRealm">
 		<property name="credentialsMatcher" ref="credentialsMatcher" />
-		<property name="authenticationTokenClass" value="com.boyaa.mf.support.shiro.SSOAuthenticationToken"/>
+		<property name="authenticationTokenClass" value="org.apache.shiro.authc.UsernamePasswordToken"/>
 	</bean>
 	
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
