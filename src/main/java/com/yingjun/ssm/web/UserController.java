@@ -1,6 +1,6 @@
 package com.yingjun.ssm.web;
 
-import com.yingjun.ssm.entity.User;
+import com.yingjun.ssm.entity.SysUser;
 import com.yingjun.ssm.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ public class UserController {
 		LOG.info("invoke----------/user/list");
 		offset = offset == null ? 0 : offset;//默认便宜0
 		limit = limit == null ? 50 : limit;//默认展示50条
-		List<User> list = userService.getUserList(offset, limit);
+		List<SysUser> list = userService.getUserList(offset, limit);
 		model.addAttribute("userlist", list);
 		return "userlist";
 	}

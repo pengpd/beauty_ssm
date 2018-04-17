@@ -2,15 +2,16 @@ package com.yingjun.ssm.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.yingjun.ssm.entity.SysUser;
-import com.yingjun.ssm.entity.User;
 
 public interface UserService {
 
-	List<User> getUserList(int offset, int limit);
+	List<SysUser> getUserList(int offset, int limit);
 
 	SysUser getUser(String username);
 
-	User getUserById(Long userId);
+	SysUser getUserById(Long userId);
 	 
 }

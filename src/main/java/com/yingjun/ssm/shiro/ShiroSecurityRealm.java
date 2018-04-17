@@ -16,10 +16,8 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;  
 import org.springframework.stereotype.Component;
 
-import com.yingjun.ssm.dao.UserDao;
 import com.yingjun.ssm.entity.SysRole;
 import com.yingjun.ssm.entity.SysUser;
-import com.yingjun.ssm.entity.User;
 import com.yingjun.ssm.service.UserRoleService;
 import com.yingjun.ssm.service.UserService;  
   
@@ -38,8 +36,6 @@ public class ShiroSecurityRealm extends AuthorizingRealm {
     @Resource
     private UserRoleService userRoleService;
   
-    @Resource  
-    private UserDao sysUserDao;  
   
     public ShiroSecurityRealm() {  
         setName("ShiroSecurityRealm"); // This name must match the name in the SysUser class's getPrincipals() method  
@@ -66,7 +62,7 @@ public class ShiroSecurityRealm extends AuthorizingRealm {
      */  
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {  
         Long userId = (Long) principals.fromRealm(getName()).iterator().next();  
-        User user = userService.getUserById(userId);
+        SysUser user = userService.getUserById(userId);
         List<SysRole> roles = userRoleService.findRoles(userId);
         if (user != null) {  
             SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();  

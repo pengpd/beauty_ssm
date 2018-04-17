@@ -37,8 +37,7 @@
     </bean>
 
     <!--扫描web相关的controller-->
-    <context:component-scan base-package="com.yingjun.ssm.web"/>
-    <context:component-scan base-package="com.yingjun.ssm.shiro"/>
+    <context:component-scan base-package="com.yingjun.ssm.web,com.yingjun.ssm.shiro,com.yingjun.ssm.common"/>
 
 	<!--全局异常捕捉 -->
 	<bean class="com.yingjun.ssm.exception.GlobalExceptionResolver" />
