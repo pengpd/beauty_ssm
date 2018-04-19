@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="loginHtml">
 <head>
@@ -10,12 +11,13 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="icon" href="../../favicon.ico">
-	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="../../css/public.css" media="all" />
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resource/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/resource/css/public.css" media="all" />
+	<script type="text/javascript">var webpath = "<%=request.getContextPath() %>"</script>
 </head>
 <body class="loginBody">
 	<form class="layui-form">
-		<div class="login_face"><img src="../../images/face.jpg" class="userAvatar"></div>
+		<div class="login_face"><img src="<%=request.getContextPath() %>/resource/images/face.jpg" class="userAvatar"></div>
 		<div class="layui-form-item input-item">
 			<label for="userName">用户名</label>
 			<input type="text" placeholder="请输入用户名" autocomplete="off" id="userName" class="layui-input" lay-verify="required">
@@ -27,7 +29,7 @@
 		<div class="layui-form-item input-item" id="imgCode">
 			<label for="code">验证码</label>
 			<input type="text" placeholder="请输入验证码" autocomplete="off" id="code" class="layui-input">
-			<img src="../../images/code.jpg">
+			<img src="<%=request.getContextPath() %>/resource/images/code.jpg">
 		</div>
 		<div class="layui-form-item">
 			<button class="layui-btn layui-block" lay-filter="login" lay-submit>登录</button>
@@ -38,8 +40,8 @@
 			<a href="javascript:;" class="seraph icon-sina layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
 		</div>
 	</form>
-	<script type="text/javascript" src="../../layui/layui.js"></script>
-	<script type="text/javascript" src="login.js"></script>
-	<script type="text/javascript" src="../../js/cache.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resource/layui/layui.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resource/js/page/login.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath() %>/resource/js/cache.js"></script>
 </body>
 </html>

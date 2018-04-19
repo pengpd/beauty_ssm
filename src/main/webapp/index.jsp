@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script language="javascript" type="text/javascript"> 
-				window.location.href='<%=request.getContextPath() %>/jsp.htm?page=index.jsp'; 
+				window.location.href='<%=request.getContextPath() %>/jsp.htm?page=login/login.jsp'; 
 	</script> 
 </body>
 </html>
