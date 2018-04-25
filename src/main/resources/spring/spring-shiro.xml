@@ -80,8 +80,8 @@
     
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login.jsp"/>
-        <property name="successUrl" value="/page/main.action"/>
+        <!-- <property name="loginUrl" value="jsp.htm?page=login/login.jsp"/> -->
+        <property name="successUrl" value="/data/index.htm"/>
         <property name="filters">
             <util:map>
                 <entry key="authc">
@@ -93,13 +93,13 @@
         <property name="filterChainDefinitions">
             <value>
             	/static/** = anon
-            	/login.jsp = anon
-            	/sysuser/login.action = anon
+            	<!-- /login/login.jsp = anon -->
+            	<!-- /sysuser/login.action = anon
             	/sysuser/register.action = anon
             	/sysuser/getEMailCount.action = anon
-            	/sysuser/getUserNameCount.action = anon
+            	/sysuser/getUserNameCount.action = anon -->
             	/sysuser/logout.action = logout
-            	/** = user,sysUser <!-- 表示访问该地址的用户是身份验证通过或RememberMe登录的都可以 -->
+            	<!-- /** = user 表示访问该地址的用户是身份验证通过或RememberMe登录的都可以 --> 
             	<!-- /** = authc  表示访问该地址用户必须身份验证通过-->
             </value>
         </property>

@@ -13,7 +13,17 @@ layui.use(['form','layer','jquery'],function(){
     form.on("submit(login)",function(data){
         $(this).text("登录中...").attr("disabled","disabled").addClass("layui-disabled");
         setTimeout(function(){
-            window.location.href = "/layuicms2.0";
+//            window.location.href = "/layuicms2.0";
+            $.post(webpath+'/login.htm?act=login',{
+				username:$("#userName").val(),
+				password:$("#password").val()
+			},function(data){
+				if(data && data.success){
+					console.log('success!!')
+				}else{
+					console.log('fail!!')
+				}
+			},'json');
         },1000);
         return false;
     })
