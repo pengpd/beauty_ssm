@@ -99,11 +99,12 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from sys_user
-    where user_id = #{userId,jdbcType=BIGINT}
+	    select 
+	    <include refid="Base_Column_List" />
+	    from sys_user
+	    where user_id = #{userId,jdbcType=BIGINT}
   </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sys_user
     where user_id = #{userId,jdbcType=BIGINT}

@@ -2,8 +2,6 @@ package com.yingjun.ssm.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.yingjun.ssm.entity.SysUser;
 
 public interface UserService {

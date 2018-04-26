@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yingjun.ssm.dao.SysUserExtMapper">
+	  <resultMap id="BaseResultMap" type="com.yingjun.ssm.entity.SysUser" extends="com.yingjun.ssm.dao.SysUserMapper.BaseResultMap">
+	  </resultMap>
+	  <select id="selectByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+		    select 
+		    <include refid="com.yingjun.ssm.dao.SysUserMapper.Base_Column_List" />
+		    from sys_user
+		    where login_account = #{username}
+  	   </select>
+ 
+</mapper>

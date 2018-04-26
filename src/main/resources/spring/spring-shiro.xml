@@ -81,7 +81,7 @@
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <!-- <property name="loginUrl" value="jsp.htm?page=login/login.jsp"/> -->
-        <property name="successUrl" value="/data/index.htm"/>
+        <!-- <property name="successUrl" value="/data/index.htm"/> -->
         <property name="filters">
             <util:map>
                 <entry key="authc">

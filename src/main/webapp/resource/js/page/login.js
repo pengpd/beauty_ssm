@@ -11,7 +11,8 @@ layui.use(['form','layer','jquery'],function(){
 
     //登录按钮
     form.on("submit(login)",function(data){
-        $(this).text("登录中...").attr("disabled","disabled").addClass("layui-disabled");
+    	$this=$(this)
+        $this.text("登录中...").attr("disabled","disabled").addClass("layui-disabled");
         setTimeout(function(){
 //            window.location.href = "/layuicms2.0";
             $.post(webpath+'/login.htm?act=login',{
@@ -19,9 +20,10 @@ layui.use(['form','layer','jquery'],function(){
 				password:$("#password").val()
 			},function(data){
 				if(data && data.success){
-					console.log('success!!')
+					window.location.href=webpath+"/jsp.htm?page=index.jsp"
 				}else{
-					console.log('fail!!')
+					$this.text("登录").removeAttr("disabled").removeClass("layui-disabled");
+					alert(data.msg)
 				}
 			},'json');
         },1000);

@@ -2,13 +2,18 @@ package com.yingjun.ssm.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yingjun.ssm.dao.SysUserExtMapper;
 import com.yingjun.ssm.entity.SysUser;
 import com.yingjun.ssm.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	private SysUserExtMapper sysUserExtMapper;
 
 	@Override
 	public List<SysUser> getUserList(int offset, int limit) {
@@ -18,8 +23,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public SysUser getUser(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		return sysUserExtMapper.selectByUserName(username);
 	}
 
 	@Override
