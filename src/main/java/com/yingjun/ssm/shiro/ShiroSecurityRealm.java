@@ -50,7 +50,7 @@ public class ShiroSecurityRealm extends AuthorizingRealm {
 //        SysUser user = userService.getByProerties(new String[]{"loginAccount"}, new String[]{token.getUsername()},null);  
         SysUser user = userService.getUser(token.getUsername());  
         if (user != null) {  
-            return new SimpleAuthenticationInfo(user.getUserId(), user.getLoginPass(), getName());  
+            return new SimpleAuthenticationInfo(user, user.getLoginPass(), getName());  
         } else {  
             return null;  
         }  

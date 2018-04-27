@@ -20,7 +20,7 @@ layui.use(['form','layer','jquery'],function(){
 				password:$("#password").val()
 			},function(data){
 				if(data && data.success){
-					window.location.href=webpath+"/jsp.htm?page=index.jsp"
+					window.location.href=webpath+"/index.htm"
 				}else{
 					$this.text("登录").removeAttr("disabled").removeClass("layui-disabled");
 					alert(data.msg)

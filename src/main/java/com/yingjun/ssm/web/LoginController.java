@@ -2,6 +2,7 @@ package com.yingjun.ssm.web;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
@@ -17,6 +18,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.yingjun.ssm.common.CommonController;
 
@@ -24,14 +26,16 @@ import com.yingjun.ssm.common.CommonController;
 @RequestMapping("/login.htm")
 public class LoginController extends CommonController{
 	
+	
 	@RequestMapping(params = "act=login", method = RequestMethod.POST)
-	public void login(String username , String password , HttpServletResponse response) throws IOException{
+	public void login(String username , String password , HttpServletResponse response , HttpServletRequest request) throws IOException{
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 		String msg = "" ;
 		boolean isFail = false;
 		try {
 			subject.login(token);
+			request.getSession().setAttribute("user", subject.getPrincipal());
 		} catch (IncorrectCredentialsException e) {
             msg = "登录密码错误. Password for account " + token.getPrincipal() + " was incorrect.";
             isFail=true;
@@ -63,6 +67,15 @@ public class LoginController extends CommonController{
 			returnSucc(response);
 		}
 		
+	}
+	
+	@RequestMapping(params = "act=logout")
+	public void logout(HttpServletRequest request,HttpServletResponse response) throws IOException{
+		Subject subject = SecurityUtils.getSubject();  
+	    if (subject.isAuthenticated()) { 
+	        subject.logout();
+	    }  
+	    returnSucc(response);
 	}
 	
 	

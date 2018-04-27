@@ -30,11 +30,24 @@
     <mvc:default-servlet-handler/>
 
     <!--配置JSP　显示ViewResolver-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
-    </bean>
+    </bean> -->
+    
+    <bean name="beetlConfig" class="com.yingjun.ssm.shiro.BeetlConfiguration" init-method="init">
+		<property name="configFileResource" value="classpath:beetl.properties" />
+	</bean>
+	<!-- Beetl视图解析器1 -->
+	<bean name="beetlViewResolver" class="org.beetl.ext.spring.BeetlSpringViewResolver">
+		<!-- <property name="prefix" value="/WEB-INF/page/"/> -->
+		<property name="suffix" value=".btl" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="order" value="0" />
+		<!-- 多GroupTemplate，需要指定使用的bean -->
+		<property name="config" ref="beetlConfig" />
+	</bean>
 
     <!--扫描web相关的controller-->
     <context:component-scan base-package="com.yingjun.ssm.web,com.yingjun.ssm.shiro,com.yingjun.ssm.common"/>

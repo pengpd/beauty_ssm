@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script language="javascript" type="text/javascript"> 
+	<%-- <script language="javascript" type="text/javascript"> 
 				window.location.href='<%=request.getContextPath() %>/jsp.htm?page=page/index.jsp'; 
-	</script> 
+	</script>  --%>
+	aaaa
 </body>
 </html>
