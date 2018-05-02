@@ -1,9 +1,9 @@
 {
 	"contentManagement": [
 		{
-			"title": "文章列表",
+			"title": "菜单管理",
 			"icon": "icon-text",
-			"href": "page/news/newsList.html",
+			"href": "/btl.htm?page=menu/menuList",
 			"spread": false
 		},
 		{

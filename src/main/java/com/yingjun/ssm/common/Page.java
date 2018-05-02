@@ -3,12 +3,12 @@ package com.yingjun.ssm.common;
 public class Page {
 
 	// private String start = "0";
-	private String pageNo = "1";
+	private String page = "1";
 	private String limit = "20";
 	private int totals = 0;
 
 	public Integer getStart() {
-		return Integer.parseInt(String.valueOf((Integer.parseInt(pageNo) - 1) * Integer.parseInt(limit)));
+		return Integer.parseInt(String.valueOf((Integer.parseInt(page) - 1) * Integer.parseInt(limit)));
 	}
 
 	public Integer getLimit() {
@@ -37,7 +37,7 @@ public class Page {
 	 * @param pageNo
 	 */
 	public void setPage(String pageNo) {
-		this.pageNo = pageNo;
+		this.page = pageNo;
 	}
 
 	public int getTotals() {

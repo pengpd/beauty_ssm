@@ -8,13 +8,13 @@ layui.use(['form','layer','table','laytpl'],function(){
     //用户列表
     var tableIns = table.render({
         elem: '#menuList',
-        url : '../../json/userList.json',
+        url : webpath+"/menu.htm?act=list",
         cellMinWidth : 95,
         page : true,
         height : "full-125",
         limits : [10,15,20,25],
         limit : 20,
-        id : "menuListTable",
+        id : "menuList",
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
             {field: 'userName', title: '用户名', minWidth:100, align:"center"},
@@ -39,9 +39,10 @@ layui.use(['form','layer','table','laytpl'],function(){
                 }
             }},
             {field: 'userEndTime', title: '最后登录时间', align:'center',minWidth:150},
-            {title: '操作', minWidth:175, templet:'#userListBar',fixed:"right",align:"center"}
+            {title: '操作', minWidth:175, templet:'#menuListBar',fixed:"right",align:"center"}
         ]]
     });
+    
 
     //搜索【此功能需要后台配合，所以暂时没有动态效果演示】
     $(".search_btn").on("click",function(){
@@ -60,11 +61,11 @@ layui.use(['form','layer','table','laytpl'],function(){
     });
 
     //添加用户
-    function addUser(edit){
+    function addMenu(edit){
         var index = layui.layer.open({
-            title : "添加用户",
+            title : "添加菜单",
             type : 2,
-            content : "userAdd.html",
+            content : webpath+"/btl.htm?page=menu/menuAdd",
             success : function(layero, index){
                 var body = layui.layer.getChildFrame('body', index);
                 if(edit){
@@ -91,7 +92,7 @@ layui.use(['form','layer','table','laytpl'],function(){
         })
     }
     $(".addNews_btn").click(function(){
-        addUser();
+    	addMenu();
     })
 
     //批量删除

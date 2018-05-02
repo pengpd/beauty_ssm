@@ -77,8 +77,6 @@ layui.use(['form','element','layer','jquery'],function(){
         var hotNewsHtml = '';
         for(var i=0;i<5;i++){
             hotNewsHtml += '<tr>'
-                +'<td align="left"><a href="javascript:;"> '+data[i].newsName+'</a></td>'
-                +'<td>'+data[i].newsTime.substring(0,10)+'</td>'
                 +'</tr>';
         }
         $(".hot_news").html(hotNewsHtml);

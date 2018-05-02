@@ -9,8 +9,9 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="${ctx}/resource/layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="${ctx}/resource/css/public.css" media="all" />
+	<link rel="stylesheet" href="${ctxPath}/resource/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="${ctxPath}/resource/css/public.css" media="all" />
+	<script type="text/javascript">var webpath = "${ctxPath}"</script>
 </head>
 <body class="childrenBody">
 <form class="layui-form">
@@ -33,13 +34,13 @@
 	<table id="menuList" lay-filter="menuList"></table>
 
 	<!--操作-->
-	<script type="text/html" id="userListBar">
+	<script type="text/html" id="menuListBar">
 		<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
 		<a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="usable">已启用</a>
 		<a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
 	</script>
 </form>
-<script type="text/javascript" src="${ctx}/resource/layui/layui.js"></script>
-<script type="text/javascript" src="userList.js"></script>
+<script type="text/javascript" src="${ctxPath}/resource/layui/layui.js"></script>
+<script type="text/javascript" src="${ctxPath}/resource/js/page/menu/menuList.js"></script>
 </body>
 </html>
