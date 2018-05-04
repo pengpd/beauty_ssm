@@ -17,28 +17,16 @@ layui.use(['form','layer','table','laytpl'],function(){
         id : "menuList",
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
-            {field: 'userName', title: '用户名', minWidth:100, align:"center"},
-            {field: 'userEmail', title: '用户邮箱', minWidth:200, align:'center',templet:function(d){
-                return '<a class="layui-blue" href="mailto:'+d.userEmail+'">'+d.userEmail+'</a>';
+            {field: 'menuName', title: '菜单名称', minWidth:100, align:"center"},
+            {field: 'dataUrl', title: '路径', minWidth:200, align:'center',templet:function(d){
+                return '<a class="layui-blue" href="mailto:'+d.userEmail+'">'+d.dataUrl+'</a>';
             }},
-            {field: 'userSex', title: '用户性别', align:'center'},
-            {field: 'userStatus', title: '用户状态',  align:'center',templet:function(d){
-                return d.userStatus == "0" ? "正常使用" : "限制使用";
-            }},
-            {field: 'userGrade', title: '用户等级', align:'center',templet:function(d){
-                if(d.userGrade == "0"){
-                    return "注册会员";
-                }else if(d.userGrade == "1"){
-                    return "中级会员";
-                }else if(d.userGrade == "2"){
-                    return "高级会员";
-                }else if(d.userGrade == "3"){
-                    return "钻石会员";
-                }else if(d.userGrade == "4"){
-                    return "超级会员";
-                }
-            }},
-            {field: 'userEndTime', title: '最后登录时间', align:'center',minWidth:150},
+            {field: 'menuClass', title: '菜单样式', align:'center'},
+            {field: 'menuCode', title: '菜单编码',  align:'center'},
+            {field: 'parentMenucode', title: '上级菜单', align:'center'},
+            {field: 'sequence', title: '排序', align:'center',minWidth:150},
+            {field: 'menuType', title: '菜单类型', align:'center'},
+            {field: 'createTime', title: '创建时间', align:'center'},
             {title: '操作', minWidth:175, templet:'#menuListBar',fixed:"right",align:"center"}
         ]]
     });

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
+
 /**
  * 
  * @author yingjun
@@ -21,6 +22,12 @@ public class BaseResult<T> implements Serializable {
     private T data;
 
     private String error;
+    
+    private String code;
+    
+    private String msg;
+    
+    private int count;
 
     public BaseResult(boolean success, String error) {
         this.success = success;
@@ -59,6 +66,30 @@ public class BaseResult<T> implements Serializable {
 	@Override
 	public String toString() {
 		return "BaseResult [success=" + success + ", data=" + data + ", error=" + error + "]";
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 }

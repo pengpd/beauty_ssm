@@ -54,5 +54,37 @@
 
 	<!--全局异常捕捉 -->
 	<bean class="com.yingjun.ssm.exception.GlobalExceptionResolver" />
+	
+	    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <!-- jackson config -->
+    <bean id="objectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean" >
+        <property name="simpleDateFormat" value="yyyy-MM-dd HH:mm:ss" />
+        <property name="failOnEmptyBeans" value="false" />
+        <property name="failOnUnknownProperties" value="false" />
+        <property name="featuresToEnable">
+            <array>
+                <value type="com.fasterxml.jackson.databind.DeserializationFeature">ACCEPT_SINGLE_VALUE_AS_ARRAY</value>
+                <value type="com.fasterxml.jackson.core.JsonParser.Feature">ALLOW_UNQUOTED_CONTROL_CHARS</value>
+            </array>
+        </property>
+    </bean>
 
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter" />
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="objectMapper" ref="objectMapper" />
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <!-- 默认的ContentType是第一个 -->
+                            <value>application/json;charset=UTF-8</value>
+                            <value>text/html;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+	
 </beans>

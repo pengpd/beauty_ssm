@@ -11,9 +11,10 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="stylesheet" href="${ctxPath}/resource/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="${ctxPath}/resource/css/public.css" media="all" />
+	<script type="text/javascript">var webpath = "${ctxPath}"</script>
 </head>
 <body class="childrenBody">
-<form class="layui-form" style="width:80%;" id="addMenu">
+<form class="layui-form" style="width:80%;" id="addMenu" action="${ctxPath}/menu.htm?act=add">
 	<div class="layui-form-item layui-row layui-col-xs12">
 			<label class="layui-form-label">菜单名称</label>
 			<div class="layui-input-block">
@@ -56,9 +57,9 @@
 		</div>
 	</div>
 	<div class="layui-form-item layui-row layui-col-xs12">
-		<label class="layui-form-label">排序</label>
+		<label class="layui-form-label">上级菜单编码</label>
 		<div class="layui-input-block">
-			<input type="text" class="layui-input" name="sequence" lay-verify="required" placeholder="请输入上级菜单编码">
+			<input type="text" class="layui-input" name="parentMenucode" lay-verify="required" placeholder="请输入上级菜单编码">
 		</div>
 	</div>
 	<div class="layui-form-item layui-row layui-col-xs12">

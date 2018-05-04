@@ -25,6 +25,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.yingjun.ssm.dto.BaseResult;
 
 
 public abstract class CommonController {
@@ -172,6 +173,11 @@ public abstract class CommonController {
 	 */
 	protected void writeJson(HttpServletResponse response, Collection<?> list) throws IOException {
 		writeJson(response, objectToJsonData(list));
+	}
+	
+	protected BaseResult<Collection<?>> wrapperResult(Collection<?> list){
+		BaseResult<Collection<?>> baseResult = new BaseResult<Collection<?>>(true, list);
+		return baseResult;
 	}
 
 	protected void writeRootJson(HttpServletResponse response, Collection<?> list) throws IOException {
