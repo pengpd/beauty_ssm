@@ -20,7 +20,7 @@ layui.use(['form','layer'],function(){
 			    	 }else{
 			    		 top.layer.msg("菜单添加失败");
 			    	 }
-			     })
+			     },'json')
         return false;
     })
 

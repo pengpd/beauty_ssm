@@ -1,7 +1,6 @@
 package com.yingjun.ssm.web;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yingjun.ssm.common.CommonController;
 import com.yingjun.ssm.common.Page;
-import com.yingjun.ssm.dto.BaseResult;
+import com.yingjun.ssm.dto.PageResult;
 import com.yingjun.ssm.entity.SysAuthority;
 import com.yingjun.ssm.service.MenuService;
 import com.yingjun.ssm.util.TimeUtils;
@@ -25,11 +24,12 @@ public class MenuController extends CommonController{
 	@Resource
 	private MenuService menuService;
 	
-	@RequestMapping(params = "act=list")
+	
+	@RequestMapping(params = "act=list",produces = "application/json")
 	@ResponseBody
-	public BaseResult<Collection<?>> list(Page page,HttpServletResponse response) throws IOException{
+	public PageResult  list(Page page,HttpServletResponse response) throws IOException{
 		List<SysAuthority> list = menuService.list(page);
-		return wrapperResult(list);
+		return wrapperResult(list); 
 	}
 
 	@RequestMapping(params = "act=add")

@@ -1,25 +1,21 @@
 package com.yingjun.ssm.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import java.io.Serializable;
-
-
+import java.util.List;
 /**
  * 
  * @author yingjun
  *
  * ajax 请求的返回类型封装JSON结果
  */
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class BaseResult<T> implements Serializable {
+public class BaseResult implements Serializable {
 
 
 	private static final long serialVersionUID = -4185151304730685014L;
 
 	private boolean success;
 
-    private T data;
+    private List<?> data;
 
     private String error;
     
@@ -34,12 +30,12 @@ public class BaseResult<T> implements Serializable {
         this.error = error;
     }
 
-    public BaseResult(boolean success, T data) {
+    public BaseResult(boolean success, List<?> data) {
         this.success = success;
         this.data = data;
     }
 
-    public boolean isSuccess() {
+	public boolean isSuccess() {
         return success;
     }
 
@@ -47,11 +43,11 @@ public class BaseResult<T> implements Serializable {
         this.success = success;
     }
 
-    public T getData() {
+    public List<?> getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(List<?> data) {
         this.data = data;
     }
 
@@ -62,12 +58,6 @@ public class BaseResult<T> implements Serializable {
     public void setError(String error) {
         this.error = error;
     }
-
-	@Override
-	public String toString() {
-		return "BaseResult [success=" + success + ", data=" + data + ", error=" + error + "]";
-	}
-
 	public String getCode() {
 		return code;
 	}
