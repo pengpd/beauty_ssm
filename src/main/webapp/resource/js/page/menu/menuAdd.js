@@ -10,7 +10,6 @@ layui.use(['form','layer'],function(){
         // 实际使用时的提交信息
 	     $.post(webpath+"/menu.htm?act=add",data.field,
 	    		 function(res){
-			    	 alert(res)
 			    	 if(res.success){
 			            top.layer.close(index);
 			            top.layer.msg("菜单添加成功！");

@@ -9,7 +9,6 @@ layui.use(['form','layer','table','laytpl'],function(){
     var tableIns = table.render({
         elem: '#menuList',
         url : webpath+"/menu.htm?act=list",
-        cellMinWidth : 95,
         page : true,
         height : "full-125",
         limits : [10,15,20,25],
@@ -17,17 +16,17 @@ layui.use(['form','layer','table','laytpl'],function(){
         id : "menuList",
         cols : [[
             {type: "checkbox", fixed:"left", width:50},
-            {field: 'menuName', title: '菜单名称', minWidth:100, align:"center"},
-            {field: 'dataUrl', title: '路径', minWidth:200, align:'center',templet:function(d){
+            {field: 'menuName', title: '菜单名称',  align:"center"},
+            {field: 'dataUrl', title: '路径',  align:'center',templet:function(d){
                 return '<a class="layui-blue" href="mailto:'+d.userEmail+'">'+d.dataUrl+'</a>';
             }},
             {field: 'menuClass', title: '菜单样式', align:'center'},
             {field: 'menuCode', title: '菜单编码',  align:'center'},
             {field: 'parentMenucode', title: '上级菜单', align:'center'},
-            {field: 'sequence', title: '排序', align:'center',minWidth:150},
+            {field: 'sequence', title: '排序', align:'center'},
             {field: 'menuType', title: '菜单类型', align:'center'},
             {field: 'createTime', title: '创建时间', align:'center'},
-            {title: '操作', minWidth:175, templet:'#menuListBar',fixed:"right",align:"center"}
+            {title: '操作',minWidth:100,  templet:'#menuListBar',fixed:"right",align:"center"}
         ]]
     });
     
